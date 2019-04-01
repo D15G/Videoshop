@@ -16,7 +16,15 @@ class AusleihModel {
     }
 
     public function getAll(): array {
-        $statement = $this->pdo->prepare('Select * from ausleihen');
+        $statement = $this->pdo->prepare('Select * from ausleihen a inner join movies m on a.fk_ausgeleihtes_video = m.id');
+        $statement->execute();
+
+        return $statement->fetchAll();
+    }
+
+    public function getAusleiheById(int $id): array {
+        $statement = $this->pdo->prepare('Select * from ausleihen where id = :id');
+        $statement->bindParam(':id', $id);
         $statement->execute();
 
         return $statement->fetchAll();
