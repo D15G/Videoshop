@@ -12,28 +12,30 @@
 <body>
     <div class="wrapper">
         <h1>Status Page</h1>
-        <table class="table table-striped">
+        <form action="bearbeiten" method="post">
+            <table class="table table-striped">
             <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Video</th>
-                <th scope="col">Rückgabe</th>
-                <th scope="col">Status</th>
-            </tr>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Video</th>
+                    <th scope="col">Rückgabe</th>
+                    <th scope="col">Status</th>
+                </tr>
             </thead>
             <tbody>
-            <?php foreach($ausleihen as $index => $ausleihe) { ?>
-            <tr>
-                <th scope="row"><?php echo $index ?></th>
-                <td><?php echo $ausleihe['name']; ?></td>
-                <td><?php echo $ausleihe['video']; ?></td>
-                <td><?php echo $ausleihe['rueckgabe']; ?></td>
-                <td><img class="icon" src="//github.githubassets.com/images/icons/emoji/unicode/1f601.png"></td>
-            </tr>
-            <?php } ?>
+                <?php foreach($ausleihen as $ausleihe) { ?>
+                <tr>
+                    <th scope="row"><button type="submit" name="ausleihe" value="<?= $ausleihe['id'] ?>"</th>
+                    <td><?= $ausleihe['name'] ?></td>
+                    <td><?= $ausleihe['video'] ?></td>
+                    <td><?= $ausleihe['rueckgabe'] ?></td>
+                    <td><img class="icon" src="//github.githubassets.com/images/icons/emoji/unicode/1f601.png"></td>
+                </tr>
+                <?php } ?>
             </tbody>
         </table>
+        </form>
     </div>
 </body>
 </html>
