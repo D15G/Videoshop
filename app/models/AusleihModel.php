@@ -30,8 +30,15 @@ class AusleihModel {
                            int $ausgeleihtes_video,
                            string $enddatum) {
 
-        $statement = $this->pdo->prepare('Insert Into tasks VALUES (:name)');
-        $statement->bindParam(':task', $task);
+        $statement = $this->pdo->prepare('Insert Into ausleihen VALUES (:name, :email, :telefon, :ausleihStatus, :mitgliedStatus, :video, :enddatum)');
+        $statement->bindParam(':name', $name);
+        $statement->bindParam(':email', $email);
+        $statement->bindParam(':telefon', $telefon);
+        $statement->bindParam(':ausleihStatus', $ausleih_status);
+        $statement->bindParam(':mitgliedStatus', $mitgliederschafts_status);
+        $statement->bindParam(':video', $ausgeleihtes_video);
+        $statement->bindParam(':enddatum', $enddatum);
+
         $statement->execute();
     }
 

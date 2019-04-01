@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: David
- * Date: 01.04.2019
- * Time: 09:02
- */
 
-class AusleihModel {
+class MoviesModel {
 
     private $pdo;
 
@@ -21,12 +15,6 @@ class AusleihModel {
         $stmt->execute();
 
         return $stmt->fetchAll();
-    }
-
-    public function create(string $name, string $) {
-        $statement = $this->pdo->prepare('Insert Into tasks (title) VALUES (:task)');
-        $statement->bindParam(':task', $task);
-        $statement->execute();
     }
 
 }
