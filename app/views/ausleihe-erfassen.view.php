@@ -12,18 +12,18 @@
 </head>
 <body>
     <div class="wrapper">
-        <form method="post">
+        <form method="post" action="kontrolle">
             <fieldset>
                 <legend>Person</legend>
 
                 <div class="form-group">
-                    <label for="name" class="form-label">Name:</label>
-                    <input class="form-control" type="text" id="name" name="name">
+                    <label for="name" class="form-label">Name:</label><p class="required-star"> *</p>
+                    <input class="form-control" type="text" id="name" name="name" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="email" class="form-label">Email:</label>
-                    <input class="form-control" type="email" id="email" name="email">
+                    <label for="email" class="form-label">Email:</label><p class="required-star"> *</p>
+                    <input class="form-control" type="email" id="email" name="email" required>
                 </div>
 
                 <div class="form-group">
@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="member-status">Mitgliedschaftsstatus:</label>
+                    <label class="form-label" for="member-status">Mitgliedschaftsstatus:</label><p class="required-star"> *</p>
                     <select class="form-control" id="member-status" name="member-status">
                         <option value="">Keine</option>
                         <option value="Bronze">Bronze</option>
@@ -47,12 +47,17 @@
                 <legend>Ausleih Details</legend>
 
                 <div class="form-group">
-                    <label class="form-label" for="movie">Video:</label>
+                    <label class="form-label" for="movie">Video:</label><p class="required-star"> *</p>
                     <select class="form-control" id="movie" name="movie">
                         <?php foreach ($films as $index => $film) { ?>
                             <option value="<?php echo $film['id'] ?>"><?= $film['title']?></option>
                         <?php } ?>
                     </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="enddate">Ausleihe Enddatum:</label>
+                    <input class="form-control" type="text" id="enddate" name="enddate" disabled>
                 </div>
 
                 <div class="form-actions">
@@ -63,5 +68,8 @@
 
         </form>
     </div>
+
+    <script src="public/js/ausleihe-enddatum.js"></script>
+
 </body>
 </html>

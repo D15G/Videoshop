@@ -11,3 +11,8 @@
     width: 23px;
     height: 23px;
 }
+
+.required-star {
+    color: darkred;
+    display: inline-block;
+}
