@@ -6,3 +6,8 @@
 .table-button {
     font-size: 14px;
 }
+
+.required-star {
+    color: darkred;
+    display: inline-block;
+}
