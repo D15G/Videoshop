@@ -3,5 +3,7 @@
 $router = new Router();
 
 $router->define([
-    '' => 'app/controllers/StatusController.php'
+    '' => 'app/controllers/StatusController.php',
+    'erfassen' => 'app/controllers/AusleiheErfassenController.php'
+
 ]);
