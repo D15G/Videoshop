@@ -6,34 +6,33 @@
  * Time: 09:02
  */
 
-class AusleihModel
-{
+class AusleihModel {
 
-    // zwingend
-    public $name;
-    public $email;
-    public $mitgliedschafts_status;
-    public $ausgeleihtes_video;
-    public $enddatum;
+    private $pdo;
 
-    // nicht zwingend
-    public $telefon;
-
-    public function __construct(string $name,
-                                string $email,
-                                string $telefon,
-                                string $mitgliedschafts_status,
-                                int $ausgeleihtes_video,
-                                string $enddatum)
+    public function __construct()
     {
+        $this->pdo = connectToDatabase();
+    }
 
-        $this->name = $name;
-        $this->email = $email;
-        $this->telefon = $telefon;
-        $this->mitgliedschafts_status = $mitgliedschafts_status;
-        $this->ausgeleihtes_video = $ausgeleihtes_video;
-        $this->enddatum = $enddatum;
+    public function getAll(): array {
+        $statement = $this->pdo->prepare('Select * from ausleihen');
+        $statement->execute();
 
+        return $statement->fetchAll();
+    }
+
+    public function create(string $name,
+                           string $email,
+                           string $telefon,
+                           string $ausleih_status,
+                           string $mitgliederschafts_status,
+                           int $ausgeleihtes_video,
+                           string $enddatum) {
+
+        $statement = $this->pdo->prepare('Insert Into tasks VALUES (:name)');
+        $statement->bindParam(':task', $task);
+        $statement->execute();
     }
 
 }
