@@ -4,5 +4,6 @@ $router = new Router();
 
 $router->define([
     '' => 'app/controllers/StatusController.php',
+    'erfassen' => 'app/controllers/AusleiheErfassenController.php',
     'bearbeiten' => ''
 ]);
