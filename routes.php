@@ -6,6 +6,7 @@ $router->define([
     '' => 'app/controllers/StatusController.php',
     'erfassen' => 'app/controllers/AusleiheErfassenController.php',
     'kontrolle' => 'app/controllers/AusleiheKontrollierenController.php',
-    'bearbeiten' => '',
-    'absenden' => 'app/controllers/ErfassungLoeschenController.php',
+    'bearbeiten' => 'app/controllers/AusleiheBearbeitenController.php',
+    'bearbeiten-speichern' => 'app/controllers/AusleiheBearbeitenSpeichernController.php',
+    'absenden' => 'app/controllers/ErfassungLoeschenController.php'
 ]);

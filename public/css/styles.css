@@ -4,7 +4,12 @@
 }
 
 .table-button {
-    font-size: 14px;
+    height: 32px;
+}
+
+.icon {
+    width: 23px;
+    height: 23px;
 }
 
 .required-star {
