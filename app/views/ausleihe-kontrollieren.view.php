@@ -18,18 +18,18 @@
             <div class="input-container">
 
                 <h5 for="name">Name:</h5>
-                <p name="name" id="name"><?= $name ?></p><br>
+                <p name="name" id="name"><?= e($name) ?></p><br>
 
                 <h5>Email: </h5>
-                <p><?= $email ?></p><br>
+                <p><?= e($email) ?></p><br>
 
                 <h5>Telefonnummer:</h5>
                 <p><?php
 
                     if ($telefon === '') {
-                        echo 'Keine';
+                        echo e('Keine');
                     } else {
-                        echo $telefon;
+                        echo e($telefon);
                     }
 
                     ?></p><br>
@@ -37,20 +37,20 @@
                 <h5>Mitgliedschaftsstatus:</h5>
                 <p><?php
                     if ($mitgliedschafts_status === '') {
-                        echo 'Keiner';
+                        echo e('Keiner');
                     } else {
-                        echo $mitgliedschafts_status;
+                        echo e($mitgliedschafts_status);
                     }
                     ?>
                 </p><br>
 
                 <h5>Video:</h5>
-                <p><?= $movieTitle[1] ?></p><br>
+                <p><?= e($movieTitle[1]) ?></p><br>
         </form>
 
         <div class="form-actions">
             <input class="btn btn-primary" value="Bestätigen" onclick="window.location='/videoshop';">
-            <button class="btn btn-secondary" value="<?php echo $id ?>" name="id" type="submit">
+            <button class="btn btn-secondary" value="<?= e($id) ?>" name="id" type="submit">
                 Abbrechen
             </button>
         </div>

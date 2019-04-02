@@ -7,10 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css">
     <link rel="stylesheet" href="public/css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <title>Erfassen</title>
 </head>
 <body>
+
     <div class="wrapper">
 
         <?php
@@ -18,7 +20,7 @@
             <div class="alert alert-danger" role="alert">
                 <ul class="errors">
                     <?php foreach ($errors as $err) { ?>
-                        <li><?= $err ?></li>
+                        <li><?= e($err) ?></li>
                     <?php } ?>
                 </ul>
             </div>
@@ -65,7 +67,7 @@
                     <label class="form-label" for="movie">Video:</label><p class="required-star"> *</p>
                     <select class="form-control" id="movie" name="movie">
                         <?php foreach ($films as $index => $film) { ?>
-                            <option value="<?php echo $film['id'] ?>"><?= e($film['title'])?></option>
+                            <option value="<?= e($film['id']) ?>"><?= e($film['title'])?></option>
                         <?php } ?>
                     </select>
                 </div>

@@ -1,5 +1,5 @@
 <?php
-
+require 'app/views/navbar.view.php';
 unset($_SESSION['formdata']);
 
 $emojis = [

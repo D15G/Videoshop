@@ -75,9 +75,6 @@
 
     </form>
     <script src="public/js/formValidation.js"></script>
-    <script>document.querySelector('#formular').addEventListener('submit', function(e) {
-           e.preventDefault();
-        });</script>
 </div>
 </body>
 </html>

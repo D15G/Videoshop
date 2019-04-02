@@ -10,8 +10,8 @@ document.querySelector('#formular').addEventListener('submit', function(e) {
     const endDate = document.querySelector('#enddate') !== null ? document.querySelector('#enddate').value : null;
 
     const dateRegex = '^\\s*((?:19|20)\\d{2})\\-(1[012]|0?[1-9])\\-(3[01]|[12][0-9]|0?[1-9])\\s*$';
-    const phoneRegex = '[^a-zA-Z]';
-    const emailRegex = '\'/^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,3})$/\'';
+    const phoneRegex = /[^a-zA-Z]/;
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
     const memberStats = [
         'Keine',
@@ -47,7 +47,7 @@ document.querySelector('#formular').addEventListener('submit', function(e) {
     if (memberStatus !== null) {
         if (memberStatus === '') {
             errors.push('Bitte wählen Sie einen Member-Status aus');
-        } else if (memberStats.indexOf(memberStatus) >= 0) {
+        } else if (memberStats.indexOf(memberStatus) === -1) {
         errors.push('Bitte wählen Sie einen gültigen Member-Status aus');
         }
     }
