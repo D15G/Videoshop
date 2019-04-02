@@ -12,7 +12,10 @@
 </head>
 <body>
     <div class="wrapper">
-        <form method="post" action="kontrolle">
+        <form method="post" action="kontrolle" id="formular">
+
+            <ul id="errorList"></ul>
+
             <fieldset>
                 <legend>Person</legend>
 
@@ -50,7 +53,7 @@
                     <label class="form-label" for="movie">Video:</label><p class="required-star"> *</p>
                     <select class="form-control" id="movie" name="movie">
                         <?php foreach ($films as $index => $film) { ?>
-                            <option value="<?php echo $film['id'] ?>"><?= $film['title']?></option>
+                            <option value="<?php echo $film['id'] ?>"><?= e($film['title'])?></option>
                         <?php } ?>
                     </select>
                 </div>
@@ -70,6 +73,6 @@
     </div>
 
     <script src="public/js/ausleihe-enddatum.js"></script>
-
+    <script src="public/js/formValidation.js"></script>
 </body>
 </html>
