@@ -11,3 +11,7 @@
     color: darkred;
     display: inline-block;
 }
+
+.input-container {
+    margin-top: 20px;
+}

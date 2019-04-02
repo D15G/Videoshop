@@ -10,11 +10,19 @@ class MoviesModel {
     }
 
     public function getAll(): array {
-        $pdo = connectToDatabase();
-        $stmt = $pdo->prepare('SELECT * FROM movies');
+        $stmt = $this->pdo->prepare('SELECT * FROM movies');
         $stmt->execute();
 
         return $stmt->fetchAll();
+    }
+
+    public function getMovieById(int $id) {
+        $stmt = $this->pdo->prepare('SELECT * FROM movies Where id = :id');
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+
+        return $stmt->fetch();
+
     }
 
 }

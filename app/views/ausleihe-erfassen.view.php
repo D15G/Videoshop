@@ -12,23 +12,35 @@
 </head>
 <body>
     <div class="wrapper">
-        <form method="post" action="kontrolle">
+
+            <?php
+            if ( ! empty($errors)) {?>
+                <div class="alert alert-danger" role="alert">
+                    <ul class="errors">
+                        <?php foreach ($errors as $err) { ?>
+                        <li><?= $err ?></li>
+                        <?php } ?>
+                    </ul>
+                </div>
+            <?php } ?>
+
+        <form method="post">
             <fieldset>
                 <legend>Person</legend>
 
                 <div class="form-group">
                     <label for="name" class="form-label">Name:</label><p class="required-star"> *</p>
-                    <input class="form-control" type="text" id="name" name="name" required>
+                    <input class="form-control" type="text" id="name" name="name" required value="<?php echo $name; ?>">
                 </div>
 
                 <div class="form-group">
                     <label for="email" class="form-label">Email:</label><p class="required-star"> *</p>
-                    <input class="form-control" type="email" id="email" name="email" required>
+                    <input class="form-control" type="email" id="email" name="email" required value="<?php echo $email; ?>">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="phone">Telefonnummer</label>
-                    <input class="form-control" type="text" id="phone" name="phone">
+                    <input class="form-control" type="text" id="phone" name="phone" value="<?php echo $telefon; ?>">
                 </div>
 
                 <div class="form-group">
@@ -57,14 +69,14 @@
 
                 <div class="form-group">
                     <label class="form-label" for="enddate">Ausleihe Enddatum:</label>
-                    <input class="form-control" type="text" id="enddate" name="enddate" disabled>
-                </div>
-
-                <div class="form-actions">
-                    <input class="btn btn-primary" type="submit" value="Absenden">
+                    <input class="form-control" type="text" id="enddate" name="enddate" readonly>
                 </div>
 
             </fieldset>
+
+            <div class="form-actions">
+                <input class="btn btn-primary" type="submit" value="Absenden">
+            </div>
 
         </form>
     </div>

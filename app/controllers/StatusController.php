@@ -1,5 +1,7 @@
 <?php
 
+unset($_SESSION['formdata']);
+
 $emojis = [
     'https://github.githubassets.com/images/icons/emoji/unicode/1f601.png',
     'https://github.githubassets.com/images/icons/emoji/unicode/1f620.png'

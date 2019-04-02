@@ -36,17 +36,28 @@ class AusleihModel {
                            string $ausleih_status,
                            string $mitgliederschafts_status,
                            int $ausgeleihtes_video,
-                           string $enddatum) {
+                           string $ausleihdatum,
+                           string $enddatum): int {
 
-        $statement = $this->pdo->prepare('Insert Into ausleihen VALUES (:name, :email, :telefon, :ausleihStatus, :mitgliedStatus, :video, :enddatum)');
-        $statement->bindParam(':name', $name);
+        $statement = $this->pdo->prepare('Insert Into ausleihen(`name`, email, telefon, ausleih_status, mitgliederschafts_status, fk_ausgeleihtes_video, ausleihdatum, enddatum) VALUES (:namee, :email, :telefon, :ausleihStatus, :mitgliedStatus, :video, :ausleihDatum, :enddatum)');
+        $statement->bindParam(':namee', $name);
         $statement->bindParam(':email', $email);
         $statement->bindParam(':telefon', $telefon);
         $statement->bindParam(':ausleihStatus', $ausleih_status);
         $statement->bindParam(':mitgliedStatus', $mitgliederschafts_status);
         $statement->bindParam(':video', $ausgeleihtes_video);
+        $statement->bindParam(':ausleihDatum', $ausleihdatum);
         $statement->bindParam(':enddatum', $enddatum);
 
+        $statement->execute();
+
+        return $this->pdo->lastInsertId();
+
+    }
+
+    public function deleteAusleiheById(string $id) {
+        $statement = $this->pdo->prepare('Delete From ausleihen Where id = :id');
+        $statement->bindParam(':id', $id);
         $statement->execute();
     }
 
