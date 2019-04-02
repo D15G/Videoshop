@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $video = $_POST['movie'];
         $enddatum = $_POST['enddate'];
 
-        $errors = validate($name, $email, $telefon);
+        $errors = validate($name, $email, $telefon, $mitgliedschafts_status, $video, $enddatum);
 
         if (empty($errors)) {
             $_SESSION["formdata"] = [$name, $email, $telefon, $mitgliedschafts_status, $video, $enddatum];
