@@ -8,6 +8,7 @@ function validate(string $name, string $email, string $telefon, string $memberSt
 
     $movieModel = new MoviesModel();
     $allMovies = $movieModel->getAllMovieIds();
+    $ids = array_map(function($record) { return $record['id']; }, $allMovies);
     $allMemberStatuses = ['', 'Bronze', 'Silber', 'Gold'];
 
     if ($name === '') {
@@ -34,7 +35,7 @@ function validate(string $name, string $email, string $telefon, string $memberSt
         array_push($errors, 'Telefonnummer darf keine Alphabetischen Zeichen enthalten!');
     }
 
-    if (!in_array($video, $allMovies)) {
+    if (!in_array($video, $ids)) {
         array_push($errors, 'Der Ausgewählte Film existiert nicht!');
     }
 

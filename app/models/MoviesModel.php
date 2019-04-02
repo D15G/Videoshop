@@ -25,7 +25,7 @@ class MoviesModel {
 
     }
 
-    public function getAllMovieIds(): array {
+    public function getAllMovieIds() {
         $stmt = $this->pdo->prepare('SELECT id FROM movies');
         $stmt->execute();
 
