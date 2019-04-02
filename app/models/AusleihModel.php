@@ -16,7 +16,9 @@ class AusleihModel {
     }
 
     public function getAll(): array {
-        $statement = $this->pdo->prepare('Select * from ausleihen a inner join movies m on a.fk_ausgeleihtes_video = m.id');
+        $statement = $this->pdo->prepare('Select a.id, a.name, m.title, a.enddatum from ausleihen a 
+                                                    inner join movies m on a.fk_ausgeleihtes_video = m.id 
+                                                    where a.ausleih_status = 0 Order by a.ausleihdatum asc');
         $statement->execute();
 
         return $statement->fetchAll();
@@ -27,7 +29,26 @@ class AusleihModel {
         $statement->bindParam(':id', $id);
         $statement->execute();
 
-        return $statement->fetchAll();
+        return $statement->fetch();
+    }
+
+    public function updateAusleihe($name, $email, $telefon, $movie, $ausleih_status, $id) {
+        $statement = $this->pdo->prepare('Update ausleihen 
+                                                    set `name` = :namee,
+                                                    email = :email, 
+                                                    telefon = :telefon, 
+                                                    fk_ausgeleihtes_video = :movie, 
+                                                    ausleih_status = :ausleih_status
+                                                    where id = :id');
+        $statement->bindParam(':namee', $name);
+        $statement->bindParam(':email', $email);
+        $statement->bindParam(':telefon', $telefon);
+        $statement->bindParam(':movie', $movie);
+        $statement->bindParam(':ausleih_status', $ausleih_status);
+        $statement->bindParam(':id', $id);
+
+        $statement->execute();
+
     }
 
     public function create(string $name,

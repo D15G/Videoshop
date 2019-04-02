@@ -15,34 +15,37 @@
 
     <div class="wrapper">
 
-            <?php
-            if ( ! empty($errors)) {?>
-                <div class="alert alert-danger" role="alert">
-                    <ul class="errors">
-                        <?php foreach ($errors as $err) { ?>
-                        <li><?= $err ?></li>
-                        <?php } ?>
-                    </ul>
-                </div>
-            <?php } ?>
+        <?php
+        if ( ! empty($errors)) {?>
+            <div class="alert alert-danger" role="alert">
+                <ul class="errors">
+                    <?php foreach ($errors as $err) { ?>
+                        <li><?= e($err) ?></li>
+                    <?php } ?>
+                </ul>
+            </div>
+        <?php } ?>
 
-        <form method="post">
+        <ul id="errorList"></ul>
+
+        <form method="post" id="formular">
+
             <fieldset>
                 <legend>Person</legend>
 
                 <div class="form-group">
                     <label for="name" class="form-label">Name:</label><p class="required-star"> *</p>
-                    <input class="form-control" type="text" id="name" name="name" required value="<?php echo $name; ?>">
+                    <input class="form-control" type="text" id="name" name="name" required value="<?= e($name) ?>">
                 </div>
 
                 <div class="form-group">
                     <label for="email" class="form-label">Email:</label><p class="required-star"> *</p>
-                    <input class="form-control" type="email" id="email" name="email" required value="<?php echo $email; ?>">
+                    <input class="form-control" type="email" id="email" name="email" required value="<?= e($email) ?>">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="phone">Telefonnummer</label>
-                    <input class="form-control" type="text" id="phone" name="phone" value="<?php echo $telefon; ?>">
+                    <input class="form-control" type="text" id="phone" name="phone" value="<?= e($telefon) ?>">
                 </div>
 
                 <div class="form-group">
@@ -64,7 +67,7 @@
                     <label class="form-label" for="movie">Video:</label><p class="required-star"> *</p>
                     <select class="form-control" id="movie" name="movie">
                         <?php foreach ($films as $index => $film) { ?>
-                            <option value="<?php echo $film['id'] ?>"><?= $film['title']?></option>
+                            <option value="<?= e($film['id']) ?>"><?= e($film['title'])?></option>
                         <?php } ?>
                     </select>
                 </div>
@@ -84,6 +87,6 @@
     </div>
 
     <script src="public/js/ausleihe-enddatum.js"></script>
-
+    <script src="public/js/formValidation.js"></script>
 </body>
 </html>
