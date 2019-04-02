@@ -8,8 +8,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $movie = $_POST['movie'];
     $ausleih_status = $_POST['ausleih_status'];
 
-    // validierung
-
     $ausleihModel = new AusleihModel();
     $ausleihModel->updateAusleihe($name, $email, $telefon, $movie, $ausleih_status, $id);
 

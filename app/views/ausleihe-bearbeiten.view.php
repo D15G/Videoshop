@@ -14,7 +14,9 @@
 <div class="wrapper">
     <form method="post" action="bearbeiten-speichern" id="formular">
 
-        <ul id="errorList"></ul>
+        <div class="alert alert-danger" role="alert"
+            <ul id="errorList"></ul>
+        </div>
 
         <fieldset>
             <legend>Person</legend>

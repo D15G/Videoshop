@@ -5,6 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $films = $movieModel->getAll();
     $ausleihModel = new AusleihModel();
     $ausleihe = $ausleihModel->getAusleiheById((int)$_POST['ausleihe']);
+
 } else {
     echo '<script>window.location = "/videoshop"</script>';
 }
