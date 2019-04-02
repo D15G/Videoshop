@@ -1,5 +1,5 @@
 <?php
-
+require 'app/views/navbar.view.php';
 require 'app/controllers/validation/ValidationController.php';
 
 $movieModel = new MoviesModel();

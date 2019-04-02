@@ -1,5 +1,5 @@
 <?php
-
+require 'app/views/navbar.view.php';
 $movie = new MoviesModel();
 
 if (!empty($_SESSION['formdata'])) {
